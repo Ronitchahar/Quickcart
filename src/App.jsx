@@ -1,9 +1,16 @@
-import './App.css'
+import React from 'react';
+import Header from './Components/Header';
+import ProductList from './Components/ProductList';
+import { products } from './Data/product';
+import './styles/App.css';
 
 function App() {
   return (
     <div className="app">
-      <h1>QuickCart</h1>
+      <Header />
+      <main className="main-content">
+        <ProductList products={products} />
+      </main>
     </div>
   );
 }
