@@ -1,16 +1,23 @@
-import React from 'react';
-import '../styles/ProductCard.css';
+import React from "react";
+import { useCart } from "../context/CartContext";
+import "../Styles/ProductCard.css";
 
-function ProductCard({ product, onAddToCart }) {
+function ProductCard({ product }) {
+
+  const { addToCart } = useCart();
+
   return (
+
     <div className="product-card">
 
       <div className="product-image-container">
+
         <img
           src={product.image}
           alt={product.name}
           className="product-image"
         />
+
       </div>
 
       <div className="product-info">
@@ -22,6 +29,7 @@ function ProductCard({ product, onAddToCart }) {
         </p>
 
         <div className="product-footer">
+
           <span className="product-price">
             ${product.price}
           </span>
@@ -29,11 +37,12 @@ function ProductCard({ product, onAddToCart }) {
           <span className="product-category">
             {product.category}
           </span>
+
         </div>
 
         <button
           className="add-to-cart-btn"
-          onClick={() => onAddToCart(product)}
+          onClick={() => addToCart(product)}
         >
           Add to Cart
         </button>
